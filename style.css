@@ -9,14 +9,6 @@ body {
   animation: backgroundChange 10s infinite;
 }
 
-.vertical-img {
-  width: 300px; /* Adjust to your preference */
-  height: auto;
-  margin-top: 20px; /* Space between the text and the image */
-  border: 5px solid #fff; /* Added border for the frame effect */
-  box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Added shadow for depth */
-}
-
 @keyframes backgroundChange {
   0% { background-color: #ffebee; }
   25% { background-color: #ffe4e1; }
@@ -30,97 +22,52 @@ h1 {
   font-family: 'Arial', sans-serif;
 }
 
-.heart {
-  width: 100px;
-  height: 100px;
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+figure {
   position: relative;
-  background: #e91e63;
-  transform: rotate(-45deg);
-  animation: beat 1s infinite;
+  margin: 0;
+  padding: 10px;
+  border: 2px solid #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.heart:before,
-.heart:after {
-  content: "";
-  width: 100px;
-  height: 100px;
-  position: absolute;
-  border-radius: 50%;
-  background: #e91e63;
+figcaption {
+  text-align: center;
+  font-size: 14px;
+  color: #333;
+  margin-top: 5px;
 }
 
-.heart:before {
-  top: -50px;
-  left: 0;
+img {
+  width: 200px;
+  height: 300px;
+  transition: opacity 0.3s, transform 0.3s;
+  cursor: pointer;
 }
 
-.heart:after {
-  left: 50px;
-  top: 0;
+img:focus {
+  outline: none;
+  opacity: 0.5;
+  transform: scale(1.1);
 }
 
-@keyframes beat {
-  0%, 20%, 50%, 80%, 100% {
-      transform: scale(1) rotate(-45deg);
-  }
-  40% {
-      transform: scale(1.1) rotate(-45deg);
-  }
-  60% {
-      transform: scale(0.9) rotate(-45deg);
-  }
+img:hover {
+  opacity: 0.5;
+  transform: scale(1.1);
 }
 
-#fireworks-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
-.firework {
-  position: absolute;
-  bottom: 0;
-  width: 20px; /* Increased size */
-  height: 20px; /* Increased size */
-  background-color: transparent;
-  animation: fireworkMove 4s ease-out infinite; /* Slower animation */
-}
-
-.firework .ray {
-  position: absolute;
-  width: 10px; /* Increased size */
-  height: 10px; /* Increased size */
-  background-color: inherit;
-  border-radius: 50%; /* Circle shape */
-  animation: fireworkExplode 4s ease-out infinite; /* Slower animation */
-}
-
-@keyframes fireworkMove {
-  0% {
-      transform: translateY(0);
-      opacity: 1;
-  }
-  80% {
-      transform: translateY(-800px); /* Higher translation */
-      opacity: 1;
-  }
-  100% {
-      opacity: 0;
-  }
-}
-
-@keyframes fireworkExplode {
-  0%, 80% {
-      transform: scale(0) translate(0, 0);
-      opacity: 1;
-  }
-  100% {
-      transform: scale(3) translate(var(--x-dir), var(--y-dir)); /* Spreading out */
-      opacity: 0;
-  }
+.vertical-img {
+  width: 300px; /* Adjust to your preference */
+  height: auto;
+  margin-top: 20px; /* Space between the text and the image */
+  border: 5px solid #fff; /* Added border for the frame effect */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Added shadow for depth */
 }
 
 .rose-container {
@@ -137,7 +84,57 @@ h1 {
 }
 
 @keyframes fadeIn {
-  to {
+  to { opacity: 1; }
+}
+
+#fireworks-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.firework {
+  position: absolute;
+  bottom: 0;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  animation: fireworkMove 4s ease-out infinite;
+}
+
+.firework .ray {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: inherit;
+  border-radius: 50%;
+  animation: fireworkExplode 4s ease-out infinite;
+}
+
+@keyframes fireworkMove {
+  0% {
+      transform: translateY(0);
       opacity: 1;
+  }
+  80% {
+      transform: translateY(-800px);
+      opacity: 1;
+  }
+  100% {
+      opacity: 0;
+  }
+}
+
+@keyframes fireworkExplode {
+  0%, 80% {
+      transform: scale(0) translate(0, 0);
+      opacity: 1;
+  }
+  100% {
+      transform: scale(3) translate(var(--x-dir), var(--y-dir));
+      opacity: 0;
   }
 }
