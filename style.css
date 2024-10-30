@@ -1,95 +1,35 @@
-/* Base Styles */
-html {
+html{
     scroll-behavior: smooth;
 }
-
 body {
     background-color: #dedede;
     padding: 5px;
     margin: 15px;
     font-size: 25px;
-    font-family: Arial, sans-serif;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
+    font-family:Arial, sans-serif;
 }
 
 h1 {
     text-align: center;
-    font-family: Arial, sans-serif;
+    font-family:Arial, sans-serif;
     font-size: 1.95em;
 }
 
-h2 {
-    text-align: center;
-}
+h2{
+    text-align:center;
+  }
 
-li {
+li{
     margin-top: 20px;
 }
 
-img {
-    width: 100%;
-    border-radius: 5px;
+img{
     border: 5px solid blue;
-}
+    border-radius: 35px;
+    width: 100%;
+  }
 
-.label {
+.label{
     text-align: center;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-/* Tablet View */
-@media (min-width: 772px) {
-    body {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    img {
-        border-radius: 50%;
-    }
-
-    img:last-of-type {
-        grid-column: span 2;
-    }
-}
-
-/* Large Screen View */
-@media (min-width: 992px) {
-    body {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-
-    img {
-        border-radius: 0;
-    }
-
-    img:nth-child(3n) {
-        grid-column: span 2;
-    }
-}
-
-/* Reduced Motion */
-@media (prefers-reduced-motion: reduce) {
-    * {
-        scroll-behavior: auto !important;
-    }
-}
-
-/* Dark Mode */
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: #222;
-        color: #fff;
-    }
-
-    img {
-        background-color: #333;
-        color: #ff0;
-        border: 1px solid black;
-    }
-
-    .label {
-        color: #ff0;
-    }
 }
