@@ -1,140 +1,102 @@
+/* Base Styles */
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-  background-color: #ffebee;
-  flex-direction: column;
-  animation: backgroundChange 10s infinite;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
 }
 
-@keyframes backgroundChange {
-  0% { background-color: #ffebee; }
-  25% { background-color: #ffe4e1; }
-  50% { background-color: #ffcccb; }
-  75% { background-color: #ff9999; }
-  100% { background-color: #ffebee; }
+header {
+    background-color: #f8f9fa;
+    padding: 20px;
+    text-align: center;
 }
 
 h1 {
-  color: #e91e63;
-  font-family: 'Arial', sans-serif;
+    color: #333;
 }
 
+/* Mobile First Styles */
 .gallery {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
 }
 
 figure {
-  position: relative;
-  margin: 0;
-  padding: 10px;
-  border: 2px solid #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-figcaption {
-  text-align: center;
-  font-size: 14px;
-  color: #333;
-  margin-top: 5px;
+    margin: 0;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 img {
-  width: 200px;
-  height: 300px;
-  transition: opacity 0.3s, transform 0.3s;
-  cursor: pointer;
+    width: 100%;
+    border-radius: 5px;
 }
 
-img:focus {
-  outline: none;
-  opacity: 0.5;
-  transform: scale(1.1);
+figcaption {
+    font-size: 14px;
+    color: #555;
+    margin-top: 10px;
 }
 
-img:hover {
-  opacity: 0.5;
-  transform: scale(1.1);
+/* Tablet View */
+@media (min-width: 772px) {
+    .gallery {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    figure {
+        border-radius: 50%;
+    }
+
+    figure:last-child {
+        grid-column: span 2;
+    }
 }
 
-.vertical-img {
-  width: 300px; /* Adjust to your preference */
-  height: auto;
-  margin-top: 20px; /* Space between the text and the image */
-  border: 5px solid #fff; /* Added border for the frame effect */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Added shadow for depth */
+/* Large Screen View */
+@media (min-width: 992px) {
+    .gallery {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    figure {
+        border-radius: 0;
+    }
+
+    figure:nth-child(3n) {
+        grid-column: span 2;
+    }
 }
 
-.rose-container {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  opacity: 0;
-  animation: fadeIn 5s forwards;
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        scroll-behavior: auto !important;
+    }
 }
 
-.rose {
-  width: 100px; /* Adjust the size as needed */
-  height: auto;
-}
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #222;
+        color: #fff;
+    }
 
-@keyframes fadeIn {
-  to { opacity: 1; }
-}
+    figure {
+        background-color: #333;
+        color: #ff0;
+        border: 1px solid black;
+    }
 
-#fireworks-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
-.firework {
-  position: absolute;
-  bottom: 0;
-  width: 20px;
-  height: 20px;
-  background-color: transparent;
-  animation: fireworkMove 4s ease-out infinite;
-}
-
-.firework .ray {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  background-color: inherit;
-  border-radius: 50%;
-  animation: fireworkExplode 4s ease-out infinite;
-}
-
-@keyframes fireworkMove {
-  0% {
-      transform: translateY(0);
-      opacity: 1;
-  }
-  80% {
-      transform: translateY(-800px);
-      opacity: 1;
-  }
-  100% {
-      opacity: 0;
-  }
-}
-
-@keyframes fireworkExplode {
-  0%, 80% {
-      transform: scale(0) translate(0, 0);
-      opacity: 1;
-  }
-  100% {
-      transform: scale(3) translate(var(--x-dir), var(--y-dir));
-      opacity: 0;
-  }
+    figcaption {
+        color: #ff0;
+    }
 }
