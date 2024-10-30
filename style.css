@@ -1,102 +1,35 @@
-/* Base Styles */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
+html{
+    scroll-behavior: smooth;
 }
-
-header {
-    background-color: #f8f9fa;
-    padding: 20px;
-    text-align: center;
+body {
+    background-color: #dedede;
+    padding: 5px;
+    margin: 15px;
+    font-size: 25px;
+    font-family:Arial, sans-serif;
 }
 
 h1 {
-    color: #333;
-}
-
-/* Mobile First Styles */
-.gallery {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
-}
-
-figure {
-    margin: 0;
-    padding: 10px;
-    border: 2px solid #ddd;
-    border-radius: 5px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
+    font-family:Arial, sans-serif;
+    font-size: 1.95em;
 }
 
-img {
+h2{
+    text-align:center;
+  }
+
+li{
+    margin-top: 20px;
+}
+
+img{
+    border: 5px solid blue;
+    border-radius: 35px;
     width: 100%;
-    border-radius: 5px;
-}
+  }
 
-figcaption {
-    font-size: 14px;
-    color: #555;
-    margin-top: 10px;
-}
-
-/* Tablet View */
-@media (min-width: 772px) {
-    .gallery {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    figure {
-        border-radius: 50%;
-    }
-
-    figure:last-child {
-        grid-column: span 2;
-    }
-}
-
-/* Large Screen View */
-@media (min-width: 992px) {
-    .gallery {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-
-    figure {
-        border-radius: 0;
-    }
-
-    figure:nth-child(3n) {
-        grid-column: span 2;
-    }
-}
-
-/* Reduced Motion */
-@media (prefers-reduced-motion: reduce) {
-    * {
-        scroll-behavior: auto !important;
-    }
-}
-
-/* Dark Mode */
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: #222;
-        color: #fff;
-    }
-
-    figure {
-        background-color: #333;
-        color: #ff0;
-        border: 1px solid black;
-    }
-
-    figcaption {
-        color: #ff0;
-    }
+.label{
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
